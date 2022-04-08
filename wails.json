@@ -1,0 +1,21 @@
+{
+  "name": "raverte",
+  "frontend:build": "npm run build",
+  "frontend:install": "npm install",
+  "frontend:dev": "",
+  "wailsjsdir": "./frontend",
+  "reloaddirs": "./frontend/src",
+  "version": "2",
+  "Path": "",
+  "BuildDir": "",
+  "outputfilename": "raverte",
+  "OutputType": "",
+  "Platform": "",
+  "Author": {
+    "name": "CharlieGo_",
+    "email": "@raverte_"
+  },
+  "debounceMS": 100,
+  "devserverurl": "http://localhost:34115",
+  "appargs": ""
+}
