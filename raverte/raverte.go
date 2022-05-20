@@ -30,21 +30,16 @@ func (r *Raverte) LoadProfile() error {
 	r.Profile = &userdata.Profile{}
 	var err error = r.Profile.LoadProfile()
 	if err != nil {
-		fmt.Println("First Error checkpoint: ", err.Error())
 		if strings.EqualFold(err.Error(), appdata.FILE_DOES_NOT_EXIST) {
 			err = r.Profile.InitialiseProfile()
 			if err != nil {
 				return fmt.Errorf("%s; %s; %s", appdata.INIT_PROFILE_FAILED, err.Error(), appdata.WIKI_PROFILE_SETUP_URL)
 			}
 		} else {
-			fmt.Println("Error here?", err.Error())
 			return fmt.Errorf("%s; %s; %s", appdata.LOAD_PROFILE_FAILED, err.Error(), appdata.WIKI_PROFILE_TROUBLESHOOTING_URL)
 		}
 	}
-	fmt.Println("I've made it here.")
-	fmt.Println("My Value: ", r.Profile.Keystore)
 	r.ChartOnlyMode = !r.Profile.Keystore
-	fmt.Println(r.ChartOnlyMode)
 
 	return nil
 }
