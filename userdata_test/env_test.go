@@ -9,8 +9,6 @@ import (
 	"testing"
 )
 
-// Note: Unexported functions tested via apikeys_test.
-
 const (
 	windowsProfilePath string = "\\Raverte\\profile.json"
 	macosProfilePath   string = "/Library/Application Support/Raverte/profile.json"
@@ -26,6 +24,7 @@ const (
 	errInvalidAssetMsg    string = "invalid raverte asset"
 )
 
+//TODO: Add tests checking dir permissions.
 func TestInvalidAssetGetRaverteAsset(t *testing.T) {
 	_, err := userdata.GetRaverteAsset("beans on toast")
 	if err != nil {

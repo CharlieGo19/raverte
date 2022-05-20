@@ -63,7 +63,7 @@ func checkRaverteAsset(path string) error {
 func configureRaverteAsset(filePath, asset string) error {
 	var raverteFolder string = strings.ReplaceAll(filePath, asset, "")
 	if _, err := os.Stat(raverteFolder); os.IsNotExist(err) {
-		err = os.Mkdir(filePath, 0600)
+		err = os.Mkdir(raverteFolder, 0700)
 		if err != nil {
 			return errors.New(appdata.CAN_NOT_CREATE_RAVERTE_DIR)
 		}
@@ -72,10 +72,8 @@ func configureRaverteAsset(filePath, asset string) error {
 		if _, err := os.Create(filePath); err != nil {
 			return errors.New(fmt.Sprintln(appdata.CAN_NOT_CREATE_FILE, filePath))
 		}
-		fmt.Println("Created profile at ", filePath)
 	}
 	if err := os.Chmod(filePath, 0600); err != nil {
-		fmt.Println("Permissions problems?")
 		return errors.New(fmt.Sprintln(appdata.CAN_NOT_SET_PERMISSIONS, filePath))
 	}
 	return nil

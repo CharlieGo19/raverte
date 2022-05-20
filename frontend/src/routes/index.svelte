@@ -2,8 +2,8 @@
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
 
-    const getChartOnlyMode = () => {
-        window.go.raverte.Raverte.GetChartOnlyMode().then(
+    const getChartOnlyMode = async () => {
+        await window.go.raverte.Raverte.GetChartOnlyMode().then(
             (/** @type boolean */ res) => {
                 return res
             }

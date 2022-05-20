@@ -124,7 +124,8 @@ func ProfileConditions(testType string, t *testing.T) (substitute func()) {
 
 	switch testType {
 	case "TestInitialiseProfile":
-		fmt.Println("In here...")
+		// TODO: Fix this? what the hell was i trying here?
+		// TODO: Test creating fresh dir - maybe that's what I was doing here :shocked:
 	case "TestProfileExistsErrInitialiseProfile":
 		if _, err := os.Create(profile); err != nil {
 			t.Error(err.Error())
@@ -145,7 +146,6 @@ func ProfileConditions(testType string, t *testing.T) (substitute func()) {
 	}
 
 	return func() {
-		fmt.Println("Cleaning up.")
 		_ = os.Remove(profile)
 		if _, err := os.Stat(profile); errors.Is(err, fs.ErrNotExist) {
 			os.Rename(profileCopy, profile)
