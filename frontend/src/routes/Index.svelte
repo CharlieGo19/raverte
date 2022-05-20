@@ -12,7 +12,7 @@
 
     onMount(() => {
        if (getChartOnlyMode()) {
-           goto('/index');
+           goto('/mainstage');
        }else{
            goto('/login');
        }       
