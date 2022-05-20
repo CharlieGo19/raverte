@@ -9,7 +9,7 @@
     "prepare": "svelte-kit sync"
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-static": "^1.0.0-next.31",
     "@sveltejs/kit": "next",
     "svelte": "^3.44.0",
     "postcss": "^8.4.12",
