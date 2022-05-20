@@ -148,8 +148,8 @@ func (a *ApiKeyRing) UnlockKeys(password string, profile Profile) error {
 
 	_, key, err := GenerateKey(password, salt, false)
 	if err != nil {
-		if err.Error() == "invalid password length" {
-			return errors.New("invalid password") // this will not be a new password, therefore it must be incorrect.
+		if err.Error() == "invalid password length" { // TODO: abstract out, and return to frontend.
+			return errors.New(err.Error()) // this will not be a new password, therefore it must be incorrect.
 		}
 		return err
 	}

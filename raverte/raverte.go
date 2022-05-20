@@ -14,13 +14,18 @@ type Raverte struct {
 }
 
 func RaverteInit() *Raverte {
-	return &Raverte{}
+	rav := Raverte{}
+	rav.ChartOnlyMode = true // incase something goes wrong in LoadProfile.
+	return &rav
 }
 
 func (r *Raverte) GetChartOnlyMode() bool {
 	return r.ChartOnlyMode
 }
 
+// Loads the users profile defined in userdata/profile.go
+//
+// Attempts to open user profile, if it doesn't exist it will create it. If a keystore is NOT configured, it will flag the application for chart only mode.
 func (r *Raverte) LoadProfile() error {
 	r.Profile = &userdata.Profile{}
 	var err error = r.Profile.LoadProfile()
@@ -36,6 +41,17 @@ func (r *Raverte) LoadProfile() error {
 	}
 
 	r.ChartOnlyMode = !r.Profile.Keystore
+
+	return nil
+}
+
+func (r *Raverte) UnlockKeys(password string) error {
+	r.KeyRing = &userdata.ApiKeyRing{}
+
+	err := r.KeyRing.UnlockKeys(password, *r.Profile)
+	if err != nil {
+		return fmt.Errorf(err.Error())
+	}
 
 	return nil
 }

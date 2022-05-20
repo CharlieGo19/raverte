@@ -1,12 +1,9 @@
-const colors = require("tailwindcss/colors")
+const colors = require("tailwindcss/colors");
 
-module.exports = {
-	//darkMode: 'media',
-	content: [
-    	"index.html",
-		"./src/**/*.svelte"
-	],
-	theme: {
+const config = {
+  content: ["./src/**/*.{html,js,svelte,ts}"],
+
+  theme: {
 		extend: {
 			colors: {
 				fuchsia: colors.fuchsia,
@@ -25,5 +22,7 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [],
-}
+  plugins: [],
+};
+
+module.exports = config;

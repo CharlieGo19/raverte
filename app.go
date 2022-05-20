@@ -34,3 +34,7 @@ func (a *App) domReady(ctx context.Context) {
 func (a *App) shutdown(ctx context.Context) {
 	// Perform your teardown here
 }
+
+func (a *App) HelloWorld() string {
+	return "Hello Future."
+}

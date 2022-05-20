@@ -1,3 +1,4 @@
+/* Write your global styles here, in PostCSS syntax */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -65,8 +66,8 @@
         border-width: 0px 0px 2px 0px;
         border-style: solid;
         border-color: rgb(255, 255, 255);
-       /* font: normal normal 200 15px Poppins;
-        color: rgb(255, 255, 255);*/
+        font: normal normal 200 15px Poppins;
+        color: rgb(255, 255, 255);
         background-color: transparent;
     }
     .key-password-input:focus {
@@ -74,15 +75,15 @@
     }
     input:focus ~ .password-label,
     input:valid ~ .password-label {
-      /*  font: normal normal 100 14px Poppins;
-      //  color: rgba(255, 255, 255, 0.603);*/
+        font: normal normal 100 14px Poppins;
+        color: rgba(255, 255, 255, 0.603);
         transform: translateY(-1.8rem);
     }
     .invalid-password  {
         padding-bottom: 0.3rem;
         position: absolute;
-      /* font: normal normal 300 17px Poppins;
-       // color: rgba(194, 33, 33, 0.9);*/
+        font: normal normal 300 17px Poppins;
+        color: rgba(194, 33, 33, 0.9);
         transform: translateY(-1.8rem);
         text-transform: capitalize;
         pointer-events: none;
@@ -91,8 +92,8 @@
     .password-label {
         padding-bottom: 0.3rem;
         position: absolute;
-        /*font: normal normal 100 17px Poppins;
-   //     color: rgb(255, 255, 255);*/
+        font: normal normal 100 17px Poppins;
+        color: rgb(255, 255, 255);
         transition: 0.5s;
         pointer-events: none;
     }

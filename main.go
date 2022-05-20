@@ -3,13 +3,14 @@ package main
 import (
 	"embed"
 	"log"
-	"raverte/raverte"
 
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/logger"
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/mac"
 	"github.com/wailsapp/wails/v2/pkg/options/windows"
+
+	"raverte/raverte"
 )
 
 //go:embed frontend/dist
@@ -17,10 +18,9 @@ var assets embed.FS
 
 //go:embed build/appicon.png
 var icon []byte
-
 func main() {
 	// Create an instance of the app structure
-	raverte := &raverte.Raverte{}
+	raverte := raverte.RaverteInit()
 	app := NewApp(raverte)
 
 	// Create application with options

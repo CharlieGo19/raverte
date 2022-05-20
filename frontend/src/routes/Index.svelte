@@ -1,21 +1,20 @@
 <script>
-    import {Router, Route} from "svelte-routing";
-    //import Home from "./Home.svelte.old"; // chart-only
-    import Login from "./Login.svelte";
+    import { onMount } from 'svelte';
+    import { goto } from '$app/navigation';
 
-    export let url = "";
-    let chartOnlyMode = false;
+    const getChartOnlyMode = () => {
+        window.go.raverte.Raverte.GetChartOnlyMode().then(
+            (/** @type boolean */ res) => {
+                return res
+            }
+        );
+    }
 
+    onMount(() => {
+       if (getChartOnlyMode()) {
+           goto('/index');
+       }else{
+           goto('/login');
+       }       
+    });
 </script>
-
-<Router {url}>
-  
-        <!--{#if chartOnlyMode }
-        <Route path="/" component={Home} /> This would be login? Can we do conditional here 
-        via svelte to check if chartOnlyMode then set route to either or login? 
-        {:else}
-        <Route path="/" component={Login} />
-        {/if}-->
-        <Route path="/" component={ Login } />
-</Router>
-
